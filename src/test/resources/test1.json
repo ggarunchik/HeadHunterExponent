@@ -1,0 +1,10 @@
+{
+  "manual_qa": {
+    "vac_count": 300,
+    "mid_salary": 1500
+  },
+  "auto_qa": {
+    "vac_count": 300,
+    "mid_salary": 1500
+  }
+}
