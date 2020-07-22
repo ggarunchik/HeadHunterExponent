@@ -4,7 +4,7 @@
 # https://circleci.com/docs/2.0/browser-testing/#selenium
 version: 2
 jobs:
-  tsm-leverice-tests:
+  hh-tests:
     docker:
       - image: circleci/openjdk:8u181-jdk-browsers
     working_directory: ~/repo
@@ -27,6 +27,9 @@ jobs:
           name: Get chrome version
           command: google-chrome --version
       - run:
+          name: Setting chmod for Chrome
+          command: chmod 777 src/test/resources/webdrivers/linux/chromedriver
+      - run:
           name: Running tests
           command: mvn clean install
       - run:
@@ -42,14 +45,14 @@ workflows:
   version: 2
   commit:
     jobs:
-      - tsm-leverice-tests
-   periodical:
+      - hh-tests
+  periodical:
     triggers:
-     - schedule:
+      - schedule:
           cron: "0 0 * * *"
-         filters:
-           branches:
-             only:
+          filters:
+            branches:
+              only:
                 - master
-     jobs:
-      - tsm-leverice-tests
+    jobs:
+      - hh-tests
