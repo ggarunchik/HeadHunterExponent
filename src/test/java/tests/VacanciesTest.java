@@ -15,11 +15,9 @@ public class VacanciesTest {
     @Test
     public void getVacancies() throws InterruptedException {
         VacanciesList vacanciesList = new VacancyAdapter().get(QA_AUTO, BELARUS_AREA, JUNIOR_EXP);
-        System.out.println("Cредняя ЗП AUTO c опытом " + JUNIOR_EXP + ":" + vacanciesList.getItems().get(0).getSalary().getAverageInCurrency(vacanciesList, USD_ID));
-        System.out.println(vacanciesList);
+        System.out.println("Cредняя ЗП начинающего QA AUTO: " + vacanciesList.getItems().get(0).getSalary().getAverageInCurrency(vacanciesList, USD_ID));
         Thread.sleep(8000);
         VacanciesList vacanciesList2 = new VacancyAdapter().get(QA_MANUAL, BELARUS_AREA, JUNIOR_EXP);
-        System.out.println("Cредняя ЗП MANUAL c опытом" + JUNIOR_EXP + ":" + vacanciesList2.getItems().get(0).getSalary().getAverageInCurrency(vacanciesList2, USD_ID));
-        System.out.println(vacanciesList2);
+        System.out.println("Cредняя ЗП начинающего QA MANUAL: "  + vacanciesList2.getItems().get(0).getSalary().getAverageInCurrency(vacanciesList2, USD_ID));
     }
 }
