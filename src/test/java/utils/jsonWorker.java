@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class jsonWorker {
 
-    public static void writeJson(String firstVacancy, String firstSalary, String secondVacancy, String secondSalary) {
+    public static void writeJson(String firstVacancy, String firstSalary, String secondVacancy, String secondSalary, String totalFound1, String totalFound2) {
         JSONParser jsonParser = new JSONParser();
         String currentDate = String.valueOf(java.time.LocalDate.now());
 
@@ -26,10 +26,19 @@ public class jsonWorker {
             JSONArray jsonArray = (JSONArray) obj;
 
             JSONObject newVacancy = new JSONObject();
+            JSONArray list1 = new JSONArray();
+            JSONArray list2 = new JSONArray();
             newVacancy.put("Date:", currentDate);
-            newVacancy.put(firstVacancy, new Integer(firstSalary));
-            newVacancy.put(secondVacancy, new Integer(secondSalary));
-            newVacancy.put(secondVacancy, new Integer(secondSalary));
+
+            list1.add("Total vacancies: " + totalFound1);
+            list1.add("Mid Salary: " + firstSalary);
+
+            list2.add("Total vacancies: " + totalFound2);
+            list2.add("Mid Salary: " + secondSalary);
+
+            newVacancy.put(firstVacancy, list1);
+            newVacancy.put(secondVacancy, list2);
+
 
             jsonArray.add(newVacancy);
 

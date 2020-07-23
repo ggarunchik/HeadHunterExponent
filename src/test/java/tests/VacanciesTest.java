@@ -14,14 +14,18 @@ public class VacanciesTest {
 
     @Test
     public void getVacancies() throws InterruptedException {
-        VacanciesList vacanciesList2 = new VacancyAdapter().get(QA_MANUAL, BELARUS_AREA, JUNIOR_EXP);
-        String firstVacancy = String.valueOf(vacanciesList2.getItems().get(0).getSalary().getAverageInCurrency(vacanciesList2, USD_ID));
+        VacanciesList allVacancies = new VacancyAdapter().getAll(QA_MANUAL, BELARUS_AREA, JUNIOR_EXP);
+        String totalFoundFirstVacancy = String.valueOf(allVacancies.getFound());
+        VacanciesList vacanciesWithSalaryOnly = new VacancyAdapter().get(QA_MANUAL, BELARUS_AREA, JUNIOR_EXP);
+        String firstVacancy = String.valueOf(vacanciesWithSalaryOnly.getItems().get(0).getSalary().getAverageInCurrency(vacanciesWithSalaryOnly, USD_ID));
 
         Thread.sleep(8000);
 
-        VacanciesList vacanciesList = new VacancyAdapter().get(QA_AUTO, BELARUS_AREA, JUNIOR_EXP);
-        String secondVacancy = String.valueOf(vacanciesList.getItems().get(0).getSalary().getAverageInCurrency(vacanciesList, USD_ID));
+        VacanciesList allVacanciesSecond = new VacancyAdapter().getAll(QA_AUTO, BELARUS_AREA, JUNIOR_EXP);
+        String totalFoundFirstVacancy2 = String.valueOf(allVacanciesSecond.getFound());
+        VacanciesList vacanciesWithSalaryOnlySecond = new VacancyAdapter().get(QA_AUTO, BELARUS_AREA, JUNIOR_EXP);
+        String secondVacancy = String.valueOf(vacanciesWithSalaryOnlySecond.getItems().get(0).getSalary().getAverageInCurrency(vacanciesWithSalaryOnlySecond, USD_ID));
 
-        writeJson("JUN QA MANUAL SALARY", firstVacancy,"JUN QA AUTO SALARY", secondVacancy);
+        writeJson("JUN QA MANUAL", firstVacancy,"JUN QA AUTO ", secondVacancy, totalFoundFirstVacancy, totalFoundFirstVacancy2);
     }
 }

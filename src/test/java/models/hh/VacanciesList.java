@@ -9,6 +9,8 @@ import java.util.List;
 public class VacanciesList {
     @Expose
     List<Vacancy> items;
+    @Expose
+    int found;
 
 
     public VacanciesList(List<Vacancy> items) {

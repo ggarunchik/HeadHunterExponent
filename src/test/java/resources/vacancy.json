@@ -1,1 +1,13 @@
-[{"Date:":"2020-07-23","QA AUTO":958,"QA MANUAL":476},{"Date:":"2020-07-23","QA AUTO":958,"QA MANUAL":476},{"Date:":"2020-07-23","JUN QA AUTO SALARY":958,"JUN QA MANUAL SALARY":476}]
+[
+  {
+    "Date:": "2020-07-23",
+    "JUN QA MANUAL": [
+      "Total vacancies: 148",
+      "Mid Salary: 476"
+    ],
+    "JUN QA AUTO ": [
+      "Total vacancies: 34",
+      "Mid Salary: 958"
+    ]
+  }
+]
