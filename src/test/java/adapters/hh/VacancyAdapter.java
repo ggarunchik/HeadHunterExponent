@@ -59,8 +59,6 @@ public class VacancyAdapter extends MainAdapter {
         }
         return correctVacancyList;
     }
-
-
 }
 
 
