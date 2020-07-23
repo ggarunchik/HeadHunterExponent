@@ -22,10 +22,10 @@ public class VacanciesTest {
         Thread.sleep(8000);
 
         VacanciesList allVacanciesSecond = new VacancyAdapter().getAll(QA_AUTO, BELARUS_AREA, JUNIOR_EXP);
-        String totalFoundFirstVacancy2 = String.valueOf(allVacanciesSecond.getFound());
+        String totalFoundSecondVacancy = String.valueOf(allVacanciesSecond.getFound());
         VacanciesList vacanciesWithSalaryOnlySecond = new VacancyAdapter().get(QA_AUTO, BELARUS_AREA, JUNIOR_EXP);
         String secondVacancy = String.valueOf(vacanciesWithSalaryOnlySecond.getItems().get(0).getSalary().getAverageInCurrency(vacanciesWithSalaryOnlySecond, USD_ID));
 
-        writeJson("JUN QA MANUAL", firstVacancy,"JUN QA AUTO ", secondVacancy, totalFoundFirstVacancy, totalFoundFirstVacancy2);
+        writeJson("JUN QA MANUAL", firstVacancy,"JUN QA AUTO ", secondVacancy, totalFoundFirstVacancy, totalFoundSecondVacancy);
     }
 }
